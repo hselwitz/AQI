@@ -62,10 +62,10 @@ class SDS011(object):
         """
         cmd = self.cmd_begin()
         cmd += (
-            self.REPORT_MODE_CMD
-            + (self.READ if read else self.WRITE)
-            + (self.ACTIVE if active else self.PASSIVE)
-            + b"\x00" * 10
+                self.REPORT_MODE_CMD
+                + (self.READ if read else self.WRITE)
+                + (self.ACTIVE if active else self.PASSIVE)
+                + b"\x00" * 10
         )
         cmd = self._finish_cmd(cmd)
         self._execute(cmd)
@@ -96,10 +96,10 @@ class SDS011(object):
         """
         cmd = self.cmd_begin()
         cmd += (
-            self.SLEEP_CMD
-            + (self.READ if read else self.WRITE)
-            + (self.SLEEP if sleep else self.WORK)
-            + b"\x00" * 10
+                self.SLEEP_CMD
+                + (self.READ if read else self.WRITE)
+                + (self.SLEEP if sleep else self.WORK)
+                + b"\x00" * 10
         )
         cmd = self._finish_cmd(cmd)
         self._execute(cmd)
@@ -112,10 +112,10 @@ class SDS011(object):
         assert work_time >= 0 and work_time <= 30
         cmd = self.cmd_begin()
         cmd += (
-            self.WORK_PERIOD_CMD
-            + (self.READ if read else self.WRITE)
-            + bytes([work_time])
-            + b"\x00" * 10
+                self.WORK_PERIOD_CMD
+                + (self.READ if read else self.WRITE)
+                + bytes([work_time])
+                + b"\x00" * 10
         )
         cmd = self._finish_cmd(cmd)
         self._execute(cmd)
