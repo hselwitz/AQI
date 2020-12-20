@@ -11,7 +11,6 @@
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     }
-
     </style>
     <meta charset="UTF-8">
     <title>Indoor AQI</title>
@@ -19,11 +18,35 @@
 <body id="b1" style="background-color:#a9e296;">
 <div class='container'>
     <h2 style="text-align: center"> Indoor AQI</h2>
-    <h1 id="aqi_int" style="font-size: 8em; text-align: center">72</h1>
+    <h1 id="aqi_int" style="font-size: 8em; text-align: center">{{aqi_last_25}}</h1>
     <h2 id="aqi_text" style="text-align: center">The air quality is good.</h2>
-    <h4 style="text-align: center">Last update: 10 minutes ago</h4>
+    <h4 style="text-align: center">Last update: {{aqi_last_time}}</h4>
 </div>
 </body>
 
-<script src="AQI/main/aqiscript.js"></script>
+<script>
+const aqi = document.getElementById("aqi_int").innerHTML
+
+if (aqi > 300) {
+    document.getElementById("b1").style.background = "#510255";
+    document.getElementById("aqi_text").innerHTML = "The air quality is hazardous.";
+} else if (aqi > 200) {
+    document.getElementById("b1").style.background = "#ad72e4";
+    document.getElementById("aqi_text").innerHTML = "The air quality is very unhealthy.";
+} else if (aqi > 150) {
+    document.getElementById("b1").style.background = "#b53838";
+    document.getElementById("aqi_text").innerHTML = "The air quality is unhealthy.";
+} else if (aqi > 100) {
+    document.getElementById("b1").style.background = "#e4a772";
+    document.getElementById("aqi_text").innerHTML =
+    "The air quality is unhealthy for sensitive groups.";
+} else if (aqi > 50) {
+    document.getElementById("b1").style.background = "#e4e172";
+    document.getElementById("aqi_text").innerHTML = "The air quality is moderate.";
+} else if (aqi > 0) {
+    document.getElementById("b1").style.background = "#a9e296";
+    document.getElementById("aqi_text").innerHTML = "The air quality is good.";
+};
+
+</script>
 </html>

@@ -8,3 +8,4 @@ class AqiData(models.Model):
 
     def __str__(self):
         return str(self.time) + " " + str(self.aqi_25)
+
