@@ -1,4 +1,3 @@
-from main.aqi_log import main_logger
 from background_task import background
 
 

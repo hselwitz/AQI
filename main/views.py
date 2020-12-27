@@ -14,8 +14,10 @@ def time_since_last(aqi_last_time):
         text = 'now'
     elif time_ago == 1:
         text = "1 minute ago"
-    else:
+    elif time_ago < 60:
         text = str(time_ago) + " minutes ago"
+    else:
+        text = str(round(time_ago/60)) + " hours ago"
 
     return text
 

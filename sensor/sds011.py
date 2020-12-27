@@ -1,5 +1,7 @@
 """This module provides an abstraction for the SDS011 air particulate density sensor.
+Author: Marcelo Rovai
 """
+
 import struct
 import serial
 

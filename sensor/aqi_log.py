@@ -5,7 +5,7 @@ import aqi
 from sds011 import SDS011
 from main.models import AqiData
 
-sensor = SDS011("COM1", use_query_mode=True)
+sensor = SDS011("/dev/ttyUSB0", use_query_mode=True)
 
 
 def get_data(n=3):
